@@ -64,7 +64,7 @@ void loop()
 	pcValue = readChangeLayer(pcValue);
 	readMeris();
 	changeChannel();
-	readExpressionPedal();
+	//readExpressionPedal();
 	setLedState(pcValue);
 }
 
@@ -132,7 +132,7 @@ void readExpressionPedal()
   if(expValueAnalog != expValueAnalogOld)
   {
     expValue = map(expValueAnalog, 0, 1024, 0, 255);
-    //midiSend_CC(midiChannelCC, 4, expValue);
+    midiSend_CC(midiChannelCC, 4, expValue);
   }
   expValueAnalogOld = expValueAnalog;
 }
